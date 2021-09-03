@@ -37,7 +37,7 @@ jobs:
     - name: Checkout middleware & copy tests
       run: |
         sudo mkdir -p $mw_path
-        cd ${{ github.repository }}/src/middlewared/middlewared
+        cd $GITHUB_WORKSPACE/src/middlewared/middlewared
         tar cfp - ./pytest | (cd $mw_path ; sudo tar xfp -)
 
         #    - name: Finalize dependencies
