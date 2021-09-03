@@ -1,13 +1,10 @@
 name: middleware-unit-tests
 
+
 on:
   push:
-    branches: no_main
+    branches: main
 
-  #  pull_request:
-  #  types:
-  #    - 'opened'
-  #    - 'synchronize'
 
 jobs:
   mw-unit-tests:
@@ -27,15 +24,19 @@ jobs:
         sudo apt install -y python3-pip
         sudo pip3 install pytest
 
-    - name: Checkout middleware & copy tests
+    - name: Checkout middleware repo
       uses: actions/checkout@v2
 
     - name: What version of Ubuntu are we running
       run: uname -a
 
-    - name: Checkout middleware & copy tests
+    - name: Install middleware
       run: |
-        sudo mkdir -p $mw_path
+        cd $GITHUB_WORKSPACE/src/middlewared
+        sudo python3 ./setup.py install
+
+    - name: Copy unit tests into dist-packages
+      run: |
         cd $GITHUB_WORKSPACE/src/middlewared/middlewared
         tar cfp - ./pytest | (cd $mw_path ; sudo tar xfp -)
 
