@@ -44,10 +44,8 @@ jobs:
         md5sum $GITHUB_WORKSPACE/src/middlewared/middlewared/pytest/client.py
         md5sum $mw_path/pytest/client.py
 
-
-        #    - name: Finalize dependencies
-        #      run: |
-        #        cd $mw_path/pytest
-        #        pip install -r unit/requirements.txt
-        #        pip install asynctest
-
+    - name: Install pytest dependencies
+      run: |
+        cd $mw_path/pytest
+        pip install -r unit/requirements.txt
+        pip install asynctest
