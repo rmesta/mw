@@ -3,7 +3,7 @@ name: middleware-unit-tests
 on:
   # test only
   push:
-    branches: mw_unit_tests
+    branches: main
 
   #  pull_request:
   #  types:
@@ -30,6 +30,10 @@ jobs:
 
     - name: Checkout middleware & copy tests
       uses: actions/checkout@v2
+
+    # Runs a single command using the runners shell
+    - name: What version of Ubuntu are we running
+        run: uname -a
 
 #    - name: Checkout middleware & copy tests
 #      run: |
