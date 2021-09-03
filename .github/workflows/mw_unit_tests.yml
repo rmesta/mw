@@ -51,3 +51,8 @@ jobs:
         cd $mw_path/pytest
         pip install -r unit/requirements.txt
         pip install asynctest
+
+    - name: middleware unit tests
+      run: |
+        cd $mw_path/pytest
+        pytest unit
