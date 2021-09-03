@@ -21,8 +21,8 @@ jobs:
     - name: Setup pytest
       run: |
         sudo apt update
-        sudo apt install -y python3-pip python3-babel
-        sudo pip3 install pytest
+        sudo apt install -y python3-pip
+        sudo pip3 install pytest Babel
 
     - name: Checkout middleware repo
       uses: actions/checkout@v2
