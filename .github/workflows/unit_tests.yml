@@ -24,9 +24,9 @@ jobs:
 
     - name: Setup pytest
       run: |
-        apt update
-        apt install -y python3.pip
-        pip3 install pytest
+        sudo apt update
+        sudo apt install -y python3.pip
+        sudo pip3 install pytest
 
     - name: Checkout middleware & copy tests
       uses: actions/checkout@v2
