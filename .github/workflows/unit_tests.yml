@@ -1,7 +1,6 @@
 name: middleware-unit-tests
 
 on:
-  # test only
   push:
     branches: main
 
@@ -35,10 +34,12 @@ jobs:
     - name: What version of Ubuntu are we running
       run: uname -a
 
-#    - name: Checkout middleware & copy tests
-#      run: |
-#        cd ${{ github.repository }}/src/middlewared/middlewared
-#        tar cfp - ./pytest | (cd $mw_path ; tar xfp -)
+    - name: What version of Ubuntu are we running
+    - name: Checkout middleware & copy tests
+      run: |
+        sudo mkdir -p $mw_path
+        cd ${{ github.repository }}/src/middlewared/middlewared
+        tar cfp - ./pytest | (cd $mw_path ; sudo tar xfp -)
 
         #    - name: Finalize dependencies
         #      run: |
