@@ -30,7 +30,6 @@ jobs:
     - name: Checkout middleware & copy tests
       uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
     - name: What version of Ubuntu are we running
       run: uname -a
 
@@ -39,6 +38,12 @@ jobs:
         sudo mkdir -p $mw_path
         cd $GITHUB_WORKSPACE/src/middlewared/middlewared
         tar cfp - ./pytest | (cd $mw_path ; sudo tar xfp -)
+
+    - name: Verify copy was successful
+      run: |
+        md5sum $GITHUB_WORKSPACE/src/middlewared/middlewared/pytest/client.py
+        md5sum $mw_path/pytest/client.py
+
 
         #    - name: Finalize dependencies
         #      run: |
