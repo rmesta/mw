@@ -10,7 +10,8 @@ jobs:
   mw-unit-tests:
     runs-on: ubuntu-latest
     env:
-      mw_path: /usr/lib/python3/dist-packages/middlewared
+      #mw_path: /usr/lib/python3/dist-packages/middlewared
+      mw_path: /usr/local/lib/python3.8/dist-packages/middlewared
 
     steps:
     - name: Set up Python 3.9
