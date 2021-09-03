@@ -34,7 +34,6 @@ jobs:
     - name: What version of Ubuntu are we running
       run: uname -a
 
-    - name: What version of Ubuntu are we running
     - name: Checkout middleware & copy tests
       run: |
         sudo mkdir -p $mw_path
